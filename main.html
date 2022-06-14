@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Modelo 2D</title>
+	<link rel="icon" type="image/png" href="https://cdn.pixabay.com/photo/2017/02/19/22/14/sun-2081062__480.png">
+	<style type="text/css">
+		body {
+			background-color: black;
+			color: white;
+			padding: 50px;
+		}
+		main {
+			display: flex;
+			align-items: center;
+		}
+		div {
+
+			border-radius: 50%;
+		}
+
+		#tierra {
+			
+			background-color: blue;
+			
+		}
+
+		#luna{
+			
+			background-color: lightgray;
+		}
+
+	</style>
+</head>
+<body>
+
+	<main>
+		<div id="tierra"></div>
+		<div id="luna"></div>
+	</main>
+</body>
+	<script type="text/javascript">
+		const diametroTierra = 12742  // 12,742 Km
+		const diametroLuna = 3474 // 3,474 Km
+		const lunaPorc = (diametroLuna * 100) / diametroTierra
+		const distanciaTierraLuna = 384400 //384400 Km
+
+		const tierra = document.getElementById('tierra')
+		const luna =document.getElementById('luna')
+
+		const tierraEscala = 40
+		const lunaEscala = (lunaPorc * tierraEscala) / 100
+		const distanciaEscala =(distanciaTierraLuna / diametroTierra) * tierraEscala
+		console.log (distanciaEscala)
+
+		tierra.style.width = tierraEscala + 'px'
+		tierra.style.height = tierraEscala + 'px'
+
+		luna.style.width = lunaEscala + 'px'
+		luna.style.height= lunaEscala + 'px'
+
+		tierra.style.marginRight = distanciaEscala + 'px'
+	</script>
+</html>
