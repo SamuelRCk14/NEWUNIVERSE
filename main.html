@@ -5,37 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Modelo 2D</title>
 	<link rel="icon" type="image/png" href="https://cdn.pixabay.com/photo/2017/02/19/22/14/sun-2081062__480.png">
-	<style type="text/css">
-		body {
-			background-color: black;
-			color: white;
-			padding: 50px;
-		}
-		main {
-			display: flex;
-			align-items: center;
-		}
-		div {
-
-			border-radius: 50%;
-		}
-
-		#tierra {
-			
-			background-color: blue;
-			
-						
-
-
-			
-		}
-
-		#luna{
-			
-			background-color: lightgray;
-		}
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/2D.css">
 </head>
 <body>
 
@@ -43,50 +13,15 @@
 		<div id="tierra"></div>
 		<div id="luna"></div>
 	</main>
+	<article>
+		<img src="https://static.nationalgeographic.es/files/styles/image_3200/public/global-deal-for-nature-01.webp?w=768">
+		<h1>Tierra</h1>
+		<p>
+			<b>Diametro: </b> 12,742 Km <br>
+			<b>Radio: </b> 6.731 Km <br>
+			<b> Gravedad: </b> 9,8 m/s²
+		</p>
+	</article>
 </body>
-	<script type="text/javascript">
-		const diametroTierra = 12742  // 12,742 Km
-		const diametroLuna = 3474 // 3,474 Km
-		const lunaPorc = (diametroLuna * 100) / diametroTierra
-		const distanciaTierraLuna = 384400 //384400 Km
-
-		const tierraEscala = 40
-		const lunaEscala = (lunaPorc * tierraEscala) / 100
-		const distanciaEscala =(distanciaTierraLuna / diametroTierra) * tierraEscala
-
-		const troposfera = (20 / diametroTierra) * tierraEscala
-		const estratosfera = (50 / diametroTierra) * tierraEscala
-		const mesosfera = (80 / diametroTierra) * tierraEscala
-		const termosferaRel = (800 / diametroTierra) * tierraEscala
-		const exosfera = (10000 / diametroTierra) * tierraEscala
-
-
-		const tierra = document.getElementById('tierra')
-		const luna =document.getElementById('luna')
-
-		
-		console.log (distanciaEscala)
-		// Tierra
-
-		tierra.style.width = tierraEscala + 'px'
-		tierra.style.height = tierraEscala + 'px'
-
-		// Luna
-
-		luna.style.width = lunaEscala + 'px'
-		luna.style.height= lunaEscala + 'px'
-
-		// Atmosfera
-
-		tierra.style.marginRight = distanciaEscala + 'px'
-		tierra.style.boxShadow = `
-			0 0 0px ${ troposfera }px #FFF,
-			0 0 0px ${ estratosfera }px #FFF2,
-			0 0 1px ${ mesosfera }px #FFF2, 
-			0 0 5px ${ termosferaRel }px #FFF2,  
-			0 0 5px ${ exosfera }px #FFF2
-			`
-			
-
-	</script>
+<script type="text/javascript" src="js/2D.js"></script>
 </html>
